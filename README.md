@@ -6,4 +6,5 @@
 </p>
 
 Currently working on:
-[x] bringing in a p5 sketch into a node server
+<br>
+[ x ] bringing in a p5 sketch into a node server
