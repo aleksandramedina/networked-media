@@ -7,4 +7,4 @@
 </p>
 
 Currently working on 👩🏼‍💻:
-- [x]bringing in a p5 sketch into a node server
+- bringing in a p5 sketch into a node server
