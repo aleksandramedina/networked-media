@@ -6,6 +6,6 @@
   Here I will be uploading my projects throughout the semester.
 </p>
 
-Currently working on:
+Currently working on 👩🏼‍💻:
 <br>
-[ x ] bringing in a p5 sketch into a node server
+- [ x ] bringing in a p5 sketch into a node server
