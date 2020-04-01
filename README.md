@@ -1,9 +1,11 @@
-# networked-media
+# Aleksandra's Networked Media Repository
 
+```bash
 <p> Welcome to my <b>Networked Media Spring 2020</b> page.
   <br>
   Here I will be uploading my projects throughout the semester.
 </p>
+```
 
 Currently working on:
 <br>
