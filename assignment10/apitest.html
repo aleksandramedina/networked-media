@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+					<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+					<script type="text/javascript">
+
+					//$ is the actual JQuery object
+
+					//adding a load event listener with callback
+
+						$(document).ready(function(){
+
+								$('#namesub').click(
+									function(){
+
+										let name = $('#name').val();
+
+										console.log("The name is: " + name);
+										$.ajax(
+											{
+										  url: "https://api.agify.io?name=" + name + "&country_id=US", // Change YOURAPPID to your API key
+										  dataType: 'json',
+										  success: function(data) {
+											//alert("Temperature is: " + data.main.temp );
+
+											//normal JS way of doing it
+											//document.getElementById("temp").innerHTML = data.main.temp;
+											//document.getElementById('tempsub').addEventListener('click', function(){});
+
+											//JQuery way of doing it
+											$('#age').html(data.age);
+
+										  },
+										  error: function() {
+											alert("error");
+										  }
+										}
+									);
+									}
+
+								);
+							});
+
+					</script>
+
+					<style>
+					body{
+						background-color: pink;
+						color: #800080;
+						font-size: 40px;
+						text-align: center;
+						font-family: "Helvetica Neue";
+					}
+
+					h1{
+						color: #66cc74;
+						font-size: 140px;
+						text-align: center;
+						font-family: "Helvetica Neue";
+
+					}
+
+					#namesub{
+						background-color: #66cc74;
+						color: #800080;
+						font-size: 40px;
+						font-family: "Helvetica Neue";
+					}
+
+					#name{
+						color: #66cc74;
+						background-color: #800080;
+						font-size: 40px;
+						font-family: "Helvetica Neue";
+					}
+
+					</style>
+
+	</head>
+	<body>
+		<h1> Let me guess your age <br>based on your name! </h1>
+
+		What's your name?
+			<br>
+			<br>
+		<input type = "text" name = "name" id = "name">
+			<br>
+			<br>
+		<input type="button" id = "namesub" value = "Check">
+			<br>
+			<br>
+		Your estimated age is: <h1 id ="age"></h1>
+	</body>
+</html>
