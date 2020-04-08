@@ -8,4 +8,5 @@
 
 <b>Currently working on:</b>👩🏼‍💻
 - [x] bringing in a p5 sketch into a node server
+- [x] experimenting with AJAX and public APIs
 
