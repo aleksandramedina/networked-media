@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Quarantine Diary</title>
+  </head>
+
+  <style>
+  body{
+    background-color: yellow;
+    font-family: 'Helvetica';
+    font-size: 20px;
+    color: black;
+    text-align: left;
+  }
+
+  h2 {
+    font-size: 40px;
+    text-align: left;
+    color: blue;
+    padding: 20px;
+  }
+  #button{
+      transition-duration: 0.4s;
+      background-color: pink;
+      color: #228B22;
+      font-size: 15px;
+      border: 3px solid #228B22;
+  }
+
+  #button:hover{
+    background-color: blue;
+    color: white;
+  }
+
+#center{
+  float: left;
+  padding: 20px;
+}
+
+  </style>
+
+
+  <body>
+
+    <div id = "center"><img width = 800px src="/uploads/<%=data.filename%>"></br></div>
+
+    <div><h2><%=data.activity%></h2></div>
+
+    <div>
+
+          <!-- <b>Date:</b> <%=data.timestamp%> <br/> -->
+          <b>Participants:</b> <%=data.participants%> <br/>
+          <b>Type:</b> <%=data.type%> <br/>
+
+      </div>
+
+      <br>
+      <br>
+      <div><b>Description:</b> <%=data.description%> <br/></div>
+      <br>
+      <br>
+      <a href = "/previous"><button type="button" id = "button" class = "button">Go Back</button></a>
+
+  </body>
+</html>

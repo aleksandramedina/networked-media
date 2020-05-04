@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+        <title>My Quarantine Diary</title>
+
+				<style>
+				body{
+					background-color: yellow;
+					font-family: 'Helvetica';
+					font-size: 15px;
+					color: blue;
+					text-align: center;
+
+				}
+
+				h1 {
+					font-size: 30px;
+					text-align: center;
+					color: blue;
+				}
+
+				h2{
+					color: #228B22;
+				}
+
+				.button{
+						transition-duration: 0.4s;
+						background-color: pink;
+						color: #228B22;
+						font-size: 15px;
+						border: 3px solid #228B22;
+				}
+
+				.button:hover{
+					background-color: blue;
+					color: white;
+				}
+
+				</style>
+
+					<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+					<script type="text/javascript">
+
+					//$ is the actual JQuery object
+
+					//adding a load event listener with callback
+
+						$(document).ready(function(){
+
+							$('#acceptbutton').click(function(){
+								let data = {};
+								let activityType = $('#activityType').val();
+								let participants = $('#participants').val();
+								let price = $('#participants').val();
+								let activity = $('#activity').html();
+								console.log("activity is:" + activity);
+
+
+									$.ajax(
+										{
+										url: "/newactivity?type=" + activityType + "&participants=" + participants + "&price=" + price + "&activity=" + activity,
+										dataType: 'json',
+										type: 'post',
+										success: function(data) {
+											console.log(data);
+											window.location.replace(data.url)
+										},
+										error: function() {
+										// alert("error");
+										}
+									}
+									);
+							})
+
+
+
+
+
+								$('#actsub').click(
+									function(){
+
+
+										let activityType = $('#activityType').val();
+										let participants = $('#participants').val();
+										let price = $('#participants').val();
+
+										console.log("This is activity type:" + activityType);
+										console.log("This is number of participants: " + participants);
+										console.log("This is the price: " + price);
+
+										$.ajax(
+											{
+										  url: "http://www.boredapi.com/api/activity?type=" + activityType + "&participants=" + participants + "&pricec=" + price, // Change YOURAPPID to your API key
+										  dataType: 'json',
+										  success: function(data) {
+											//alert("Temperature is: " + data.main.temp );
+
+											//normal JS way of doing it
+											//document.getElementById("temp").innerHTML = data.main.temp;
+											//document.getElementById('actsub').addEventListener('click', function(){});
+
+											//JQuery way of doing it
+											$('#activity').html(data.activity);
+											console.log (data);
+											console.log ("This is the activity: " + data.activity);
+
+										  },
+										  error: function() {
+											alert("error");
+										  }
+										}
+									);
+									}
+
+								);
+							});
+
+					</script>
+
+	</head>
+	<body>
+		<h1>Give me a fun quarantine activity!</h1>
+		<br>
+		What type of activity?:
+		<select name="activityType" id = "activityType">
+							<option value="default">Choose one</option>
+							<option value="educational">Educational</option>
+							<option value="recreational">Recreational</option>
+							<option value="social">Social</option>
+							<option value="diy">DIY</option>
+							<option value="charity">Charity</option>
+							<option value="cooking">Cooking</option>
+							<option value="relaxation">Relaxation</option>
+							<option value="music">Music</option>
+							<option value="busywork">Busywork</option>
+						</select>
+		<br>
+		How many participants?: <input type = "text" name = "participants" id = "participants">
+		<br>
+		<!-- Price?: <input type="range" id="price" name="price" min="0" max="1" step="0.1">
+		<br> -->
+		<br>
+		<input type="button" id = "actsub" class = "button" value = "Give it to me!">
+		<br>
+		<h1>The next activity you should try out is: </h1><h2 id ="activity"></h2>
+		<br>
+		<button type="button" id = "acceptbutton" class = "button">Accept</button>
+		<!-- <a href = "/newactivity">Accept</a> -->
+		<a href = "/mainpage.html"><button type="button" id = "declinebutton" class = "button">Decline</button></a>
+
+	</body>
+</html>

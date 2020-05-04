@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Quarantine Diary</title>
+  </head>
+
+  <style>
+
+      body{
+        background-color: yellow;
+        font-family: 'Helvetica';
+        font-size: 15px;
+        color: blue;
+
+      }
+
+      h1 {
+        font-size: 30px;
+        text-align: center;
+        color: blue;
+      }
+
+
+      h2{
+        color: #228B22;
+      }
+
+      #button{
+          transition-duration: 0.4s;
+          background-color: pink;
+          color: #228B22;
+          font-size: 15px;
+          border: 3px solid #228B22;
+      }
+
+      #button:hover{
+        background-color: blue;
+        color: white;
+      }
+  </style>
+
+  <body>
+
+    <h1>Things that I have done and have yet to do <br> during quarantine 2020 </h1>
+
+
+
+<!-- add urls to each activity by their IDs -->
+  <h2>Not completed</h2>
+    <% for(var i=0; i < data.length; i++) { %> 
+      <% if (data[i].status == false) { %> 
+        <!-- <div> <%= data[i]._id %></div> -->
+        <div><a href="/individual?id=<%=data[i]._id%>"><%= data[i].activity %></a></div>
+        <hr />
+
+     <% } %>
+
+    <% } %>
+
+  </br>
+  </br>
+
+  <h2>Completed</h2>
+
+    <% for(var i=0; i < data.length; i++) { %> 
+      <% if (data[i].status == true) { %> 
+        <!-- <div> <%= data[i]._id %></div> -->
+       <div>  <img width="30" src="/uploads/<%=data[i].filename%>"> <a href="/individual?id=<%=data[i]._id%>"><%= data[i].activity %></a></div>
+        <hr />
+
+     <% } %>
+
+    <% } %>
+    <a href = "mainpage.html"><button type="button" id = "button">Go Back</button></a>
+
+
+  </body>
+</html>

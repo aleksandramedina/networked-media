@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Quarantine Diary</title>
+  </head>
+
+  <style>
+  body{
+    background-color: yellow;
+    font-family: 'Helvetica';
+    font-size: 15px;
+    color: black;
+  }
+
+  h2 {
+    font-size: 30px;
+    text-align: center;
+    color: blue;
+  }
+  #button{
+      transition-duration: 0.4s;
+      background-color: pink;
+      color: #228B22;
+      font-size: 15px;
+      border: 3px solid #228B22;
+  }
+
+  #button:hover{
+    background-color: blue;
+    color: white;
+  }
+
+  input[type=text] {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+  </style>
+
+  <body>
+
+
+
+<div>
+
+      <h2><%=data.activity%></h2>
+      <b>Participants:</b> <%=data.participants%> <br/>
+      <b>Type:</b> <%=data.type%> <br/>
+  </div>
+
+
+
+
+    <form action = "/completeactivity" method = "post" enctype="multipart/form-data">
+
+<!-- enctype = "multipart/form-data" -->
+
+                  <input type="hidden" id="activityid" name="activityid" value="<%=data._id%>">
+
+                  <p id = "description"><b>Decription:</b></p>
+                  <input type = "text" name = "textbox" id = "button">
+
+              	  <p><b>Upload an image: </b></p> <input type="file" accept=".jpg" name="thefile">
+                  <br />
+                  <br />
+                  <br />
+
+
+          <input id = "button" type="submit" value="Save">
+          <input id = "button" type="reset" value ="Cancel">
+                  <br />
+                  <br />
+                  <br />
+
+          <a href = "/previous"><button type="button" id = "button">Go Back</button></a>
+      </form>
+
+
+  </body>
+</html>
